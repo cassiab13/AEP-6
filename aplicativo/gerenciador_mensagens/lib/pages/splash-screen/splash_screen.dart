@@ -17,7 +17,7 @@ class SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => const Home(title: "SMS Seguro",)),
+        MaterialPageRoute(builder: (_) => const Home()),
       );
     });
   }
