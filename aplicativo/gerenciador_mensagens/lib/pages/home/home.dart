@@ -1,48 +1,57 @@
 import 'package:flutter/material.dart';
+import 'package:gerenciador_mensagens/routes/app_routes.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key, required this.title});
-
-  final String title;
+  const Home({super.key});
 
   @override
   State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
-  int _counter = 0;
+  int _selectedIndex = 0;
 
-  void _incrementCounter() {
+  void _onItemTapped(int index) {
     setState(() {
-      _counter++;
+      _selectedIndex = index;
     });
-  }
 
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: AppRoutes.getWidget(_selectedIndex)
+      )
+    );
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+        title: Image.asset(
+          'images/logo/logo_02.png',
+          height: 30,
         ),
+        centerTitle: true,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      body: const Center(child: Text("Jean"),),
+      bottomNavigationBar: BottomNavigationBar(
+				currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+        items: const [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.message),
+              label: "Mensagem"
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.headphones),
+              label: "Configuração"
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.note),
+            label: "Termos de Uso"
+          ),
+        ],
       ),
     );
   }
