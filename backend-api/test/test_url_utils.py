@@ -11,8 +11,8 @@ def test_extract_url():
     
 def test_adjust_url():
     url = ['unicesumar.edu.br']
-    assert adjust_url(url) == ["https://www.unicesumar.edu.br"]
+    assert adjust_url(url) == ["https://unicesumar.edu.br"]
 
 def test_verify_if_url_is_redirected():
     url = ['unicesumar.edu.br']
-    assert verify_if_url_is_redirected(url) == ["https://www.unicesumar.edu.br"]
+    assert verify_if_url_is_redirected(url) == "https://www.unicesumar.edu.br"
