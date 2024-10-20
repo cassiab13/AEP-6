@@ -2,33 +2,29 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-class HttpServiceWrapper {
+abstract class HttpServiceWrapper<T> {
   final String baseUrl;
+  final String endpoint;
 
-  HttpServiceWrapper({required this.baseUrl});
+  HttpServiceWrapper({required this.baseUrl, required this.endpoint});
 
-  Future<dynamic> get(String endpoint, {Map<String, String>? headers}) async {
+  T fromJson(Map<String, dynamic> json);
+
+  Future<T> get({Map<String, String>? headers}) async {
     try {
       final response = await http.get(
         Uri.parse('$baseUrl$endpoint'),
         headers: headers,
       );
-      return response;
+
+      if (response.statusCode == 200) {
+        Map<String, dynamic> json = jsonDecode(response.body);
+        return fromJson(json);
+      } else {
+        throw Exception('Erro ao realizar GET: ${response.statusCode}');
+      }
     } catch (e) {
       throw Exception('Erro ao realizar GET: $e');
-    }
-  }
-
-  Future<dynamic> post(String endpoint, dynamic body, {Map<String, String>? headers}) async {
-    try {
-      final response = await http.post(
-        Uri.parse('$baseUrl$endpoint'),
-        body: jsonEncode(body),
-        headers: headers,
-      );
-      return response;
-    } catch (e) {
-      throw Exception('Erro ao realizar POST: $e');
     }
   }
 }
