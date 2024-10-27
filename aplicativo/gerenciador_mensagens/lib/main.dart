@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:gerenciador_mensagens/background/listen_sms.dart';
 import 'package:gerenciador_mensagens/pages/splash-screen/splash_screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  ListenSms();
   runApp(const MyApp());
 }
 
