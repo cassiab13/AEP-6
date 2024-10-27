@@ -12,6 +12,7 @@ class ValidationRequest extends HttpServiceWrapper<Validation>  {
 
   @override
   Validation fromJson(Map<String, dynamic> json) {  return Validation(json);}
+  
   Future<List<dynamic>> analyzeMessage(String message) async {
     try {
       final response = await http.post(
