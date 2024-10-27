@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from  request.api_request import make_request, submit_url, check_analysis_status, is_url_safe
+from  ..sms_seguro.url_checker.api_request import make_request, submit_url, check_analysis_status, is_url_safe
 load_dotenv()
 api_key = os.getenv('API_KEY')
 api_url = os.getenv('API_URL')
