@@ -8,9 +8,7 @@ import joblib
 import os
 from django.conf import settings
 
-print(os.path.abspath('machine_learning/random_forest.pkl'))
-
-model_path = os.path.join(settings.BASE_DIR, 'url_checker', 'machine_learning', 'random_forest.pkl')
+model_path = os.path.join(settings.BASE_DIR, 'random_forest.pkl')
 model = joblib.load(model_path)
 
 @csrf_exempt
