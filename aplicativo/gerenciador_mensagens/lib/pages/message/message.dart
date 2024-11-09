@@ -13,7 +13,7 @@ class _MessageState extends State<Message> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _messageController = TextEditingController();
   final ValidationRequest validationRequest = ValidationRequest(
-      baseUrl: 'http://127.0.0.1:8000', endpoint: '/url_checker/analyze');
+      baseUrl: 'http://127.0.0.1:8000', endpoint: 'url_checker/analyze_url');
   @override
   Widget build(BuildContext context) {
     return Scaffold(

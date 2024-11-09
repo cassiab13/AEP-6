@@ -1,4 +1,4 @@
-from ..models import Messages
+from ..models.models import Messages
 
 class MessageService:
     
