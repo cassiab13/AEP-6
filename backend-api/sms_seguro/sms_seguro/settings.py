@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sms_seguro',
-    'corsheaders'
+    'corsheaders',
+    'url_checker'
 ]
 
 MIDDLEWARE = [
