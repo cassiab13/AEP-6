@@ -34,7 +34,6 @@ class ValidationRequest extends HttpServiceWrapper<Validation> {
             });
           }
         }
-        print(results);
         return results;
       } else {
         throw Exception('Erro ao analisar a mensagem');
