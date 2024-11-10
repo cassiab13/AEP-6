@@ -2,8 +2,8 @@ import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from url_checker.machine_learning.random_forest import predict_url
-from .api_request import submit_url, check_analysis_status, is_url_safe
-from .url_utils import extract_url, verify_if_url_is_redirected
+from .service.api_request import submit_url, check_analysis_status, is_url_safe
+from .service.url_utils import extract_url, verify_if_url_is_redirected
 import joblib
 import os
 from django.conf import settings

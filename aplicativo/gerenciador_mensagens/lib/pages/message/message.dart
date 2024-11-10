@@ -13,7 +13,7 @@ class _MessageState extends State<Message> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _messageController = TextEditingController();
   final ValidationRequest validationRequest = ValidationRequest(
-      baseUrl: 'http://127.0.0.1:8000', endpoint: '/url_checker/analyze');
+      baseUrl: 'http://127.0.0.1:8000/', endpoint: 'analyze_message');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,22 +90,39 @@ class _MessageState extends State<Message> {
           content: SingleChildScrollView(
             child: ListBody(
               children: results.map<Widget>((result) {
-                Validation validationResult = Validation({
+                Validation validationResult = Validation.fromMap({
                   'id': 1,
                   'message': _messageController.text,
-                  'isSafe': result['safe'],
+                  'isSafeAPI': result['api_safe'],
+                  'isSafeRF': result['rf_safe'],
                   'date': DateTime.now().toIso8601String(),
-                  'cause': 'Nenhum problema encontrado'
+                  'cause': 'Nenhum problema encontrado',
+                  'urls': [result['url']]
                 });
 
-                String message = validationResult.isSafe
-                    ? 'URL Segura'
-                    : 'URL Insegura. Não clique!';
+                String apiMessage = validationResult.isSafeAPI
+                    ? 'De acordo com a API a URL é segura'
+                    : 'De acordo com a API a URL é insegura. Não clique!';
+
+                String rfMessage = validationResult.isSafeRF
+                    ? 'De acordo com a IA a URL é segura'
+                    : 'De acordo com a IA a URL é insegura. Não clique!';
 
                 Color textColor =
-                    validationResult.isSafe ? Colors.green : Colors.red;
+                    (validationResult.isSafeAPI && validationResult.isSafeRF)
+                        ? Colors.green
+                        : Colors.red;
 
-                return Text(message, style: TextStyle(color: textColor, fontSize: 20));
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(apiMessage,
+                        style: TextStyle(color: textColor, fontSize: 20)),
+                    const SizedBox(height: 10),
+                    Text(rfMessage,
+                        style: TextStyle(color: textColor, fontSize: 20)),
+                  ],
+                );
               }).toList(),
             ),
           ),
