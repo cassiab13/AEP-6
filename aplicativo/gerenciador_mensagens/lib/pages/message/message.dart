@@ -14,6 +14,7 @@ class _MessageState extends State<Message> {
   final TextEditingController _messageController = TextEditingController();
   final ValidationRequest validationRequest = ValidationRequest(
       baseUrl: 'http://127.0.0.1:8000/', endpoint: 'analyze_message');
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,8 +55,7 @@ class _MessageState extends State<Message> {
                   ElevatedButton(
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
-                        var results = await validationRequest
-                            .analyzeMessage(_messageController.text);
+                        var results = await validationRequest.analyzeMessage(_messageController.text);
                         _showResultsDialog(results);
                       }
                     },
@@ -101,27 +101,45 @@ class _MessageState extends State<Message> {
                 });
 
                 String apiMessage = validationResult.isSafeAPI
-                    ? 'De acordo com a API a URL é segura'
-                    : 'De acordo com a API a URL é insegura. Não clique!';
+                    ? 'De acordo com a API, a URL é segura.'
+                    : 'De acordo com a API, a URL é insegura. Não clique!';
 
                 String rfMessage = validationResult.isSafeRF
-                    ? 'De acordo com a IA a URL é segura'
-                    : 'De acordo com a IA a URL é insegura. Não clique!';
+                    ? 'De acordo com a IA, a URL é segura.'
+                    : 'De acordo com a IA, a URL é insegura. Não clique!';
 
                 Color textColor =
                     (validationResult.isSafeAPI && validationResult.isSafeRF)
                         ? Colors.green
                         : Colors.red;
 
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(apiMessage,
-                        style: TextStyle(color: textColor, fontSize: 20)),
-                    const SizedBox(height: 10),
-                    Text(rfMessage,
-                        style: TextStyle(color: textColor, fontSize: 20)),
-                  ],
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Análise da URL:',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          color: Colors.black87,
+                        ),
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        apiMessage,
+                        style: TextStyle(color: textColor, fontSize: 16),
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        rfMessage,
+                        style: TextStyle(color: textColor, fontSize: 16),
+                      ),
+                      const SizedBox(height: 12),
+                      Divider(color: Colors.grey.shade300, thickness: 1),
+                    ],
+                  ),
                 );
               }).toList(),
             ),
@@ -131,8 +149,21 @@ class _MessageState extends State<Message> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text('Fechar'),
-            ),
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.blue, 
+                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0),
+                ),
+              ),
+              child: const Text(
+                'Fechar',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 14,
+                ),
+              ),
+            )
           ],
         );
       },

@@ -36,13 +36,14 @@ class _HomeState extends State<Home> {
     }
   }
 
-  void _onItemTapped(int index) {
+  void _onItemTapped(int index) async {
     setState(() {
       _selectedIndex = index;
     });
 
-    Navigator.push(context,
+    await Navigator.push(context,
         MaterialPageRoute(builder: AppRoutes.getWidget(_selectedIndex)));
+    _listAllMessages();
   }
 
   @override
@@ -63,21 +64,48 @@ class _HomeState extends State<Home> {
                   itemCount: _messages.length,
                   itemBuilder: (context, index) {
                     final message = _messages[index];
-                    final isSafe =
-                        message.urls.isNotEmpty && message.urls[0].apiSafe;
+                    final isSafe = message.urls.isNotEmpty && message.urls[0].apiSafe;
                     return ListTile(
-                      title: Text('Mensagem analisada: ${message.messageText}'),
+                      title: const Text(
+                        'Mensagem analisada:',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
                       subtitle: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          for (var urlInfo in message.urls)
-                            Text(
-                              'URL: ${urlInfo.url} - API segura: ${urlInfo.apiSafe ? 'Segura' : 'Insegura'} - IA segura: ${urlInfo.rfSafe ? 'Segura' : 'Insegura'}',
+                          Padding(
+                            padding: const EdgeInsets.only(top: 4.0),
+                            child: Text(
+                              message.messageText,
+                              style: const TextStyle(color: Colors.black87),
                             ),
+                          ),
+                          const SizedBox(height: 8.0),
+                          for (var urlInfo in message.urls)
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'URL: ${urlInfo.url}',
+                                  style: const TextStyle(fontWeight: FontWeight.w500, color: Colors.blueAccent),
+                                ),
+                                Text(
+                                  'API segura: ${urlInfo.apiSafe ? 'Segura' : 'Insegura'}',
+                                  style: TextStyle(color: urlInfo.apiSafe ? Colors.green : Colors.red),
+                                ),
+                                Text(
+                                  'IA segura: ${urlInfo.rfSafe ? 'Segura' : 'Insegura'}',
+                                  style: TextStyle(color: urlInfo.rfSafe ? Colors.green : Colors.red),
+                                ),
+                              ],
+                            ),
+                            const Divider(),
                         ],
                       ),
-                      trailing: Icon(isSafe ? Icons.check_circle : Icons.error,
-                          color: isSafe ? Colors.green : Colors.red),
+                      trailing: Icon(
+                        isSafe ? Icons.check_circle : Icons.error,
+                        color: isSafe ? Colors.green : Colors.red,
+                      ),
                     );
                   },
                 ),
