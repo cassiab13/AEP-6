@@ -1,0 +1,151 @@
+commit bec9fa7a8be21fd6dde957831a68f369889662e1
+Author: jeanunicesumar <124851594+jeanunicesumar@users.noreply.github.com>
+Date:   Sun Nov 10 12:57:11 2024 -0300
+
+    fix: melhorando design de exibição lista em tela (#14)
+    
+    Co-authored-by: JS-Develope <jeanaparecido21@gmail.com>
+
+commit 0ce4205de41376de8daf55307d7fea91b233e880
+Author: Cassia <125088421+cassiab13@users.noreply.github.com>
+Date:   Sun Nov 10 10:42:33 2024 -0300
+
+    015 integracao bd (#13)
+    
+    * 009-feat-implementação do algoritmo Random Forest para análise das mensagens
+    
+    * 009-improve-algoritmo random forest
+    
+    * 015-feat-início integração com BD
+    
+    * 015-fix-corrige importações
+    
+    * 015-refactor-finaliza integração com BD
+    
+    * 015-fix-corrige importacoes
+
+commit 9c2ee17b8d833a935f18739491dc385072c7601d
+Author: Cassia <125088421+cassiab13@users.noreply.github.com>
+Date:   Sun Nov 10 09:56:26 2024 -0300
+
+    015 integracao bd (#12)
+    
+    * 009-feat-implementação do algoritmo Random Forest para análise das mensagens
+    
+    * 009-improve-algoritmo random forest
+    
+    * 015-feat-início integração com BD
+    
+    * 015-fix-corrige importações
+    
+    * 015-refactor-finaliza integração com BD
+
+commit aa8b94ae36cb4914e8a20ea53df0f2f95ae297bb
+Author: Cassia <125088421+cassiab13@users.noreply.github.com>
+Date:   Sun Nov 10 09:19:19 2024 -0300
+
+    009 machine learning (#11)
+    
+    * 009-feat-implementação do algoritmo Random Forest para análise das mensagens
+    
+    * 009-improve-algoritmo random forest
+
+commit d9d073cd4cb55a8e69ec9bda602a8e074c9e63e3
+Author: jeanunicesumar <124851594+jeanunicesumar@users.noreply.github.com>
+Date:   Sun Oct 27 17:35:54 2024 -0300
+
+    feat: escutando mensagens em segundo plano (#10)
+    
+    Co-authored-by: JS-Develope <jeanaparecido21@gmail.com>
+
+commit be389fcce7bf5a0598eac296e210544f1375d6bb
+Author: Cassia <125088421+cassiab13@users.noreply.github.com>
+Date:   Sat Oct 26 20:20:38 2024 -0300
+
+    011-feat-criacao-endpoint (#9)
+
+commit 895bac2efe2c453dd40092e8a7bf3f36c911a674
+Author: Cassia <125088421+cassiab13@users.noreply.github.com>
+Date:   Mon Oct 21 19:05:12 2024 -0300
+
+    005-docs (#8)
+
+commit 1845bd1b1e2588ac51e8893dcbd46f7bbecdf6a2
+Author: jeanunicesumar <124851594+jeanunicesumar@users.noreply.github.com>
+Date:   Sun Oct 20 15:52:44 2024 -0300
+
+    feat: criando service e modelo de validation (#7)
+    
+    Co-authored-by: JS-Develope <jeanaparecido21@gmail.com>
+
+commit eb1fb4a8b60298a53b91f1a45fda7b6b7be01e4b
+Author: jeanunicesumar <124851594+jeanunicesumar@users.noreply.github.com>
+Date:   Sun Oct 20 09:56:00 2024 -0300
+
+    feat: criando estrutura e form para envio de mensagem para validação (#5)
+    
+    Co-authored-by: JS-Develope <jeanaparecido21@gmail.com>
+
+commit 0d36ed0dc05cc5877c49ea339aeef9eba4bd6dfb
+Author: jeanunicesumar <124851594+jeanunicesumar@users.noreply.github.com>
+Date:   Sun Oct 20 09:54:53 2024 -0300
+
+    feat: criando tela com switch buttons (#6)
+    
+    Co-authored-by: JS-Develope <jeanaparecido21@gmail.com>
+
+commit b835308b7a14bd5d9bcbc66aeaa3a8c490b6df38
+Author: Cassia <125088421+cassiab13@users.noreply.github.com>
+Date:   Sat Oct 19 16:58:39 2024 -0300
+
+    início da integracao com api externa (#4)
+
+commit 9517c33e7db6732fb76e19f8de6d786de4fda933
+Author: jeanunicesumar <124851594+jeanunicesumar@users.noreply.github.com>
+Date:   Wed Oct 16 23:31:37 2024 -0300
+
+    feat: criando navegação entre telas (#3)
+    
+    Co-authored-by: JS-Develope <jeanaparecido21@gmail.com>
+
+commit d6c0b62799aa52e8f5cfefb40457ae32b80226ef
+Author: Cassia <125088421+cassiab13@users.noreply.github.com>
+Date:   Thu Oct 10 19:35:26 2024 -0300
+
+    02 ler mensagem (#2)
+    
+    * 02-feat-ler-mensagem-extrair-url
+    
+    * 02-test-extrair-url
+
+commit 4f32837eebf149b46127b01ff0fe18925a003b7b
+Author: jeanunicesumar <124851594+jeanunicesumar@users.noreply.github.com>
+Date:   Wed Oct 9 21:05:21 2024 -0300
+
+    feat: criando splash screen com logo SMSeguro (#1)
+    
+    Co-authored-by: JS-Develope <jeanaparecido21@gmail.com>
+
+commit 400aeb45dc121c05fccbfbc8dd971511cc71ccb6
+Author: JS-Develope <jeanaparecido21@gmail.com>
+Date:   Sat Oct 5 17:52:03 2024 -0300
+
+    feat: inicio do aplicativo
+
+commit aeade56234848a847f2a4e0aeba6ef257da195d6
+Author: Cassia <125088421+cassiab13@users.noreply.github.com>
+Date:   Tue Oct 1 09:45:21 2024 -0300
+
+    05- docs - add documento de gerenciamento de configuracao
+
+commit afd2fe3aeec35e6ac64b2043f9d98d6c823b724b
+Author: Cassia <125088421+cassiab13@users.noreply.github.com>
+Date:   Tue Oct 1 09:34:05 2024 -0300
+
+    configuracao inicial do projeto
+
+commit 3f429e7377a405220793d30c89a614ff2e130403
+Author: Cassia <125088421+cassiab13@users.noreply.github.com>
+Date:   Mon Sep 30 22:03:37 2024 -0300
+
+    Initial commit
