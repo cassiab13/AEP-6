@@ -64,7 +64,7 @@ def predict_url(model, url):
     ])
     
     prediction = model.predict(attribute_df)
-    return "maliciosa" if prediction[0] == 1 else "segura"
+    return False if prediction[0] == 1 else True
 
 csv_file_path = os.path.join(os.path.dirname(__file__),'example_urls.csv')
 data = load_data(csv_file_path)
